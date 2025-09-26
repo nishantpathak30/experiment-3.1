@@ -1,0 +1,53 @@
+import React from "react";
+import ReactDOM from "react-dom";
+import "./styles.css";
+
+const products = [
+  { name: "Wireless Mouse", price: "$25.99", status: "In Stock" },
+  { name: "Keyboard", price: "$45.5", status: "Out of Stock" },
+  { name: "Monitor", price: "$199.99", status: "In Stock" }
+];
+
+function App() {
+  return (
+    <div className="container">
+      <h2>Products List</h2>
+      <div className="products">
+        {products.map((product, index) => (
+          <div className="card" key={index}>
+            <h3>{product.name}</h3>
+            <p>Price: {product.price}</p>
+            <p>Status: {product.status}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+ReactDOM.render(<App />, document.getElementById("root"));
+body {
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  border: 1px solid black;
+  padding: 20px;
+  width: 700px;
+  margin: 50px auto;
+  text-align: center;
+}
+
+.products {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+
+.card {
+  border: 1px solid #ccc;
+  padding: 15px 25px;
+  width: 200px;
+  box-shadow: 1px 1px 5px rgba(0,0,0,0.1);
+  border-radius: 5px;
+}
